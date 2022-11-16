@@ -38,6 +38,12 @@ jobs:
         run: |
           echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
           echo "branch coverage = ${{ steps.jacoco.outputs.branches }}"
+
+      - name: Push Checkstyle report
+        uses: jwgmeligmeyling/checkstyle-github-action@v1.2
+        
+      - name: Snyk
+        uses: snyk/actions@0.3.0
       
       - name: Commit badge
         run: |
